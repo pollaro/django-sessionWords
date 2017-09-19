@@ -1,0 +1,34 @@
+#leftSide{
+    display: inline-block;
+    width: 48%;
+    padding: 1%;
+}
+
+#rightSide{
+    display: inline-block;
+    width: 47%;
+    border-left: thick solid black;
+    vertical-align: top;
+    height: 600px;
+    padding: 1%;
+}
+
+#rightSide input{
+    float: right;
+}
+
+.Red{
+    color: Red;
+}
+
+.Blue{
+    color: blue;
+}
+
+.Green{
+    color: green;
+}
+
+.Big{
+    font-size: 24pt;
+}

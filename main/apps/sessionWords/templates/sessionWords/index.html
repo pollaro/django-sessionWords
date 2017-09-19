@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Words! Session!</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'sessionWords/css/indexStyle.css' %}">
+    </head>
+    <body>
+        <div id="leftSide">
+            <h2>Add a New Word</h2>
+            <form id="addForm" action="/addWord/" method="post">
+                {% csrf_token %}
+                <input type="text" name="word">
+                <br><br>
+                <input type="radio" name="color" value="Red" checked>Red
+                <br>
+                <input type="radio" name="color" value="Blue">Blue
+                <br>
+                <input type="radio" name="color" value="Green">Green
+                <br>
+                <br>
+                <input type="checkbox" name="big" value="Show in BIG letters">Show in BIG letters
+                <br>
+                <input id="addWordSubmit" type="submit" name="submit" value="Add Word">
+            </form>
+        </div>
+        <div id="rightSide">
+            <form action="/clear/" method="post">
+                {% csrf_token %}
+                <input id="clearSubmit" type="submit" name="clear" value="Clear Words">
+                <br>
+            </form>
+            <div id="wordBox">
+                {% for t in request.session.text %}
+                    <span class="{{t.c}} {{t.b}}">{{t.w}}</span><span> Updated at {{t.t}}</span><br>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
